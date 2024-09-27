@@ -7,7 +7,7 @@ if [ ! -d "$DIR" ]; then
 	exit 1
 fi
 
-tmux new-session -d -s dev
+tmux new-session -d -s dev -c $DIR
 
 tmux new-window -t dev:1 -n 'dev'    -c $DIR
 tmux new-window -t dev:2 -n 'run'    -c $DIR 
