@@ -30,6 +30,8 @@ sudo apt install bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
+stow .
+
 #  ---
 
 if ! grep -Fxq "alias dev=~/dev.sh" ~/.bashrc
@@ -42,9 +44,7 @@ then
     echo "alias cdeveloping=~/cDeveloping.sh" >> ~/.bashrc
 fi
 
-stow .
-
-chmod +x ~/dev.sh 
-chmod +x ~/cDeveloping
+chmod +x ~/dev.sh
+chmod +x ~/cDeveloping.sh
 
 source ~/.bashrc
