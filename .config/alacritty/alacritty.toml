@@ -1,0 +1,15 @@
+shell = "C:\\Users\\Pierluigi\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe -nologo"
+
+working_directory = "C:\\Users\\Pierluigi\\dev"
+
+[font]
+normal = { family = "MesloLGM Nerd Font" }
+
+[window]
+startup_mode = "Fullscreen"
+padding = { x = 5, y = 5}
+
+[keyboard]
+bindings = [
+    {key = "F11", action = "ToggleFullscreen"}
+]
