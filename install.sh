@@ -43,8 +43,14 @@ then
     echo "alias dev=~/dev.sh" >> ~/.bashrc
 fi
 
+if ! grep -Fxq "alias cDeveloping=~/cDeveloping.sh" ~/.bashrc
+then
+    echo "alias cDeveloping=~/cDeveloping.sh" >> ~/.bashrc
+fi
+
 stow .
 
 chmod +x ~/dev.sh 
+chmod +x ~/cDeveloping
 
 source ~/.bashrc
