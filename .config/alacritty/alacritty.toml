@@ -1,14 +1,20 @@
-[shell]=
-program = "C:\\Users\\Pierluigi\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe -nologo"
+shell = "C:\\Program Files\\PowerShell\\7\\pwsh.exe -nologo"
 
-working_directory = "C:\\Users\\Pierluigi\\dev"
+import = [
+  "C:\\Users\\Pierluigi\\AppData\\Roaming\\alacritty\\themes\\tokyo-night.toml"
+]
 
-[font]
+working_directory = "C:\\Users\\Pierluigi"
+
+[font]	
 normal = { family = "MesloLGM Nerd Font" }
 
 [window]
 startup_mode = "Fullscreen"
 padding = { x = 5, y = 5}
+
+[scrolling]
+history = 1
 
 [keyboard]
 bindings = [
