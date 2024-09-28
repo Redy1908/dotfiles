@@ -1,4 +1,5 @@
-shell = "C:\\Users\\Pierluigi\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe -nologo"
+[shell]=
+program = "C:\\Users\\Pierluigi\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe -nologo"
 
 working_directory = "C:\\Users\\Pierluigi\\dev"
 
