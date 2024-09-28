@@ -37,9 +37,9 @@ then
     echo "alias dev=~/dev.sh" >> ~/.bashrc
 fi
 
-if ! grep -Fxq "alias cDeveloping=~/cDeveloping.sh" ~/.bashrc
+if ! grep -Fxq "alias cdeveloping=~/cDeveloping.sh" ~/.bashrc
 then
-    echo "alias cDeveloping=~/cDeveloping.sh" >> ~/.bashrc
+    echo "alias cdeveloping=~/cDeveloping.sh" >> ~/.bashrc
 fi
 
 stow .
