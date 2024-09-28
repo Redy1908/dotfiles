@@ -25,5 +25,5 @@ EOL
 
 printf "CC=gcc\nCFLAGS=-I.\n\nall: bin/main\n\nbin/main: obj/main.o\n\t\$(CC) -o bin/main obj/main.o\n\nobj/main.o: src/main.c\n\t\$(CC) -c src/main.c -o obj/main.o\n\nclean:\n\trm -f obj/*.o bin/main\n" > Makefile
 
-echo "Struttura della directory e Makefile creati con successo nella directory '$1'."
+echo "Started C developing."
 
