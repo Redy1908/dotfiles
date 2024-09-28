@@ -8,7 +8,7 @@ sudo apt update
 sudo apt upgrade
 
 # Some utility packages
-sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux
+sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux lsd
 
 # Starship
 curl -sS https://starship.rs/install.sh | sh
@@ -24,12 +24,6 @@ if ! grep -Fxq 'eval "$(zoxide init bash)"' ~/.bashrc
 then
     echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 fi
-
-# Rust
-curl https://sh.rustup.rs -sSf | sh
-
-# LSD
-cargo install lsd
 
 # Bat
 sudo apt install bat
