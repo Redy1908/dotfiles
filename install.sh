@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Neovim
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-
 # Update and Upgrade
 sudo apt update
 sudo apt upgrade
 
 # Some utility packages
-sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux lsd
+sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux zoxide bat lsd
+
+# Neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
 # Starship
 curl -sS https://starship.rs/install.sh | sh
@@ -19,21 +19,19 @@ then
 fi
 
 # Zoxide
-sudo apt install zoxide
 if ! grep -Fxq 'eval "$(zoxide init bash)"' ~/.bashrc
 then
     echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 fi
 
 # Bat
-sudo apt install bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
+# Move the files to the correct locations
 stow .
 
-#  ---
-
+# Aliases for the scripts
 if ! grep -Fxq "alias dev=~/dev.sh" ~/.bashrc
 then
     echo "alias dev=~/dev.sh" >> ~/.bashrc
@@ -44,6 +42,7 @@ then
     echo "alias cdeveloping=~/cDeveloping.sh" >> ~/.bashrc
 fi
 
+# Run permission for the scripts
 chmod +x ~/dev.sh
 chmod +x ~/cDeveloping.sh
 
