@@ -28,7 +28,7 @@ From the terminal: `wsl --install` then `wsl --install -d <DistroName>`
 
 Run your distro, clone this repository and run the script `install.sh` the setup is now complete.
 
-# Linux configuration
+# To reproduce the configuration on Linux
 
-Clone this repository and run the script `install.sh` the setup is now complete.
+Clone this repository and run the script `install.sh`.
 
