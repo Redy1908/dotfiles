@@ -13,9 +13,9 @@ I mainly use this configuration from WSL (Windows Subsystem for Linux).
 ## To reproduce the configuration on Windows:
 
 ### Prerequisites
-- Install a [nerd font](https://www.nerdfonts.com/font-downloads)
-- Install Alacritty from the [source](https://github.com/alacritty/alacritty).
-- Install Starship from the [source](https://github.com/starship/starship).
+- Install a [nerd font](https://www.nerdfonts.com/font-downloads).
+- Install [Alacritty](https://github.com/alacritty/alacritty).
+- Install [Starship](https://github.com/starship/starship).
 
 ### Set-up
 Move/copy the folder `alacritty` from `.windows/` to `%APPDATA%/roaming/`
