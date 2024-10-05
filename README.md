@@ -28,7 +28,7 @@ Move/copy the file `.windows/starship/starship.toml` to `C:\Users\Username\.conf
 ### Install WSL and a Linux distribution:
 From the terminal: `wsl --install` then `wsl --install -d <DistroName>`
 
-Run your distro, clone this repository and run the script `install.sh` the setup is now complete.
+Run your distro, clone this repository and run the script `install.sh`.
 
 # To reproduce the configuration on Linux
 
