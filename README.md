@@ -1,5 +1,3 @@
-# dotfiles
-
 # Software i'm using
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Tmux](https://github.com/tmux/tmux/wiki)
