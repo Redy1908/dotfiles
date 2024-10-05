@@ -1,18 +1,14 @@
 #!/bin/bash
 
 # Update and Upgrade
-
 sudo apt update
 sudo apt upgrade
 
-
-# Some utility packages
-sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux zoxide bat lsd
-
-
-# Neovim
-
+# Adding Neovim
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
+
+# Packages installation
+sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux zoxide bat lsd
 
 # Starship
 curl -sS https://starship.rs/install.sh | sh
@@ -28,7 +24,6 @@ then
     echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 fi
 
-
 # Bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -37,28 +32,25 @@ ln -s /usr/bin/batcat ~/.local/bin/bat
 stow .
 
 # Aliases for the commands
-
 if ! grep -Fxq 'alias cd='z'' ~/.bashrc
 then
-
-	echo -e "\nalias cd='z'" >> ~/.bashrc
+    echo -e "\nalias cd='z'" >> ~/.bashrc
 fi
 
 if ! grep -Fxq 'alias cat='bat'' ~/.bashrc
 then
-	echo "alias cat='bat'" >> ~/.bashrc
+    echo "alias cat='bat'" >> ~/.bashrc
 fi
 
 if ! grep -Fxq 'alias ls='lsd'' ~/.bashrc
 
 then
-	echo "alias ls='lsd'" >> ~/.bashrc
+    echo "alias ls='lsd'" >> ~/.bashrc
 fi
 
 # Aliases for the scripts
 if ! grep -Fxq "alias dev=~/dev.sh" ~/.bashrc
 then
-
     echo -e "\nalias dev=~/dev.sh" >> ~/.bashrc
 fi
 
