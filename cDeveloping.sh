@@ -13,7 +13,7 @@ fi
 mkdir -p "$1"
 cd "$1" || exit
 
-mkdir -p src obj bin results 
+mkdir -p src include bin lib obj results 
 
 cat <<EOL > src/main.c
 #include <stdio.h>
@@ -24,8 +24,69 @@ int main() {
 }
 EOL
 
-printf "CC=gcc\nCFLAGS=-I. -fopenmp\n\nall: bin/main\n\nbin/main: obj/main.o\n\t\$(CC) -o bin/main obj/main.o \$(CFLAGS)\n\nobj/main.o: src/main.c\n\t\$(CC) -c src/main.c -o obj/main.o \$(CFLAGS)\n\nclean:\n\trm -f obj/*.o bin/main\n" > Makefile
+cat <<EOL > Makefile
+CC = cc
+CFLAGS = -Wall -Iinclude
+LDFLAGS = -Llib
 
-printf "#!/bin/bash\n\n#PBS -N myJob\n#PBS -q studenti\n#PBS -o results/result.out\n#PBS -e results/result.err\n\ncd \$PBS_O_WORKDIR\n\nif [ -f results/result.out ]; then\n    rm results/result.out\nfi\n\nif [ -f results/result.err ]; then\n    rm reusults/result.err\nfi\n\necho 'Working directory: ' \$(pwd)\n\nmake\n\n./bin/main" > $1.pbs
+SRC = \$(wildcard src/*.c)
+OBJ = \$(SRC:src/%.c=obj/%.o)
+EXEC = bin/main
+
+all: \$(EXEC)
+
+\$(EXEC): \$(OBJ)
+	\$(CC) \$(OBJ) -o \$(EXEC) \$(LDFLAGS)
+
+obj/%.o: src/%.c
+	\$(CC) \$(CFLAGS) -c \$< -o \$@
+
+clean:
+	rm -f obj/*.o \$(EXEC)
+
+.PHONY: all clean
+EOL
+
+cat <<EOL > $1.pbs
+#!/bin/bash
+
+#PBS -N myJob
+#PBS -q studenti
+#PBS -o results/result.out
+#PBS -e results/result.err
+
+cd \$PBS_O_WORKDIR
+
+if [ -f results/result.out ]; then
+    rm results/result.out
+fi
+
+if [ -f results/result.err ]; then
+    rm results/result.err
+fi
+
+make
+
+./bin/main
+EOL
+
+cat <<EOL > compile_commands.json
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "$1",
+    "file": "$(pwd)/src/main.c",
+    "output": "$(pwd)/obj/main.o"  
+  }
+]
+EOL
 
 echo "Started C developing."
