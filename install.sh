@@ -59,9 +59,14 @@ then
     echo "alias cdeveloping=~/cDeveloping.sh" >> ~/.bashrc
 fi
 
+if ! grep -Fxq "cpbs=~/createPbsFile.sh" ~/.bashrc
+then
+    echo "alias cpbs=~/createPbsFile.sh" >> ~/.bashrc
+fi
+
 # Run permission for the scripts
 chmod +x ~/dev.sh
 chmod +x ~/cDeveloping.sh
-
+chmod +x ~/createPbsFile.sh
 
 source ~/.bashrc
