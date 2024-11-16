@@ -13,9 +13,6 @@ normal = { family = "MesloLGM Nerd Font" }
 startup_mode = "Fullscreen"
 padding = { x = 5, y = 5}
 
-[scrolling]
-history = 1
-
 [keyboard]
 bindings = [
     {key = "F11", action = "ToggleFullscreen"}
