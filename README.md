@@ -7,31 +7,19 @@
 - [Lsd](https://github.com/lsd-rs/lsd)
 - [Bat](https://github.com/sharkdp/bat)
 
-# WSL configuration
+# Configuration
 
-I mainly use this configuration from WSL (Windows Subsystem for Linux).
+This configuration is meant to be usend inside wsl2 on windows
 
-## To reproduce the configuration on Windows:
-
-### Prerequisites
+### Windows Prerequisites
 - Install a [nerd font](https://www.nerdfonts.com/font-downloads).
 - Install [Alacritty](https://github.com/alacritty/alacritty).
 - Install [Starship](https://github.com/starship/starship).
+- Install [Ubuntu via wsl](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 ### Set-up
-Move/copy the folder `alacritty` from `.windows/` to `%APPDATA%/roaming/`
+- Start Ubuntu end clone this repository
+- Edit the font name in `.windows/alacritty/alacritty.toml` according to the nerd font you installed
+- Run the `./install.sh` script
 
-Edit the file `%APPDATA%/roaming/alacritty/alacritty.toml`: set your `shell executable`, edit the `username` in the `import clause`, edit the `working_directory` and customize the `font`.
-
-Move/copy the file `.windows/starship/starship.toml` to `C:\Users\Username\.config`
-
-
-### Install WSL and a Linux distribution:
-From the terminal: `wsl --install` then `wsl --install -d <DistroName>`
-
-Run your distro, clone this repository and run the script `install.sh`.
-
-# To reproduce the configuration on Linux
-
-Clone this repository and run the script `install.sh`.
-
+- Note that the script will also configure neovim using [this](https://github.com/Redy1908/nvim) repository 

@@ -8,10 +8,13 @@ sudo apt upgrade
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
 # Packages installation
-sudo apt install make gcc ripgrep unzip git xclip neovim stow tmux zoxide bat lsd
+sudo apt install build-essential ripgrep neovim stow tmux zoxide bat lsd -y
+
+# Neovim files
+git clone https://github.com/Redy1908/nvim.git ./.config/nvim
 
 # Starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 if ! grep -Fxq 'eval "$(starship init bash)"' ~/.bashrc
 then
@@ -54,19 +57,31 @@ then
     echo -e "\nalias dev=~/dev.sh" >> ~/.bashrc
 fi
 
-if ! grep -Fxq "alias cdeveloping=~/cDeveloping.sh" ~/.bashrc
-then
-    echo "alias cdeveloping=~/cDeveloping.sh" >> ~/.bashrc
-fi
-
-if ! grep -Fxq "cpbs=~/createPbsFile.sh" ~/.bashrc
-then
-    echo "alias cpbs=~/createPbsFile.sh" >> ~/.bashrc
-fi
-
 # Run permission for the scripts
 chmod +x ~/dev.sh
-chmod +x ~/cDeveloping.sh
-chmod +x ~/createPbsFile.sh
 
 source ~/.bashrc
+
+# Windows
+windows_user=$(cmd.exe /c "echo %USERNAME%" | tr -d '\r')
+
+output_file="alacritty.toml"
+cp .windows/alacritty/alacritty.toml $output_file
+
+cat <<EOF >> alacritty.toml
+
+[general]
+import = [
+  "C:\\\Users\\\\$windows_user\\\AppData\\\Roaming\\\alacritty\\\themes\\\tokyo-night.toml"
+]
+
+working_directory = "C:\\\Users\\\\$windows_user"
+
+EOF
+mkdir /mnt/c/Users/$windows_user/AppData/Roaming/alacritty
+
+cp -r .windows/alacritty/themes /mnt/c/Users/$windows_user/AppData/Roaming/alacritty
+cp alacritty.toml /mnt/c/Users/$windows_user/AppData/Roaming/alacritty
+cp .windows/starship/starship.toml /mnt/c/Users/$windows_user
+
+rm alacritty.toml
