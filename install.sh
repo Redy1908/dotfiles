@@ -65,6 +65,7 @@ source ~/.bashrc
 # Windows
 windows_user=$(cmd.exe /c "echo %USERNAME%" | tr -d '\r')
 
+# Alacritty
 output_file="alacritty.toml"
 cp .windows/alacritty/alacritty.toml $output_file
 
@@ -82,6 +83,12 @@ mkdir /mnt/c/Users/$windows_user/AppData/Roaming/alacritty
 
 cp -r .windows/alacritty/themes /mnt/c/Users/$windows_user/AppData/Roaming/alacritty
 cp alacritty.toml /mnt/c/Users/$windows_user/AppData/Roaming/alacritty
-cp .windows/starship/starship.toml /mnt/c/Users/$windows_user
 
 rm alacritty.toml
+
+# Starship 
+mkdir /mnt/c/Users/$windows_user/.config
+cp .windows/starship/starship.toml /mnt/c/Users/$windows_user/.config
+mkdir /mnt/c/Users/$windows_user/Documents/PowerShell
+touch /mnt/c/Users/$windows_user/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+echo "Invoke-Expression (&starship init powershell)" >> /mnt/c/Users/$windows_user/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
