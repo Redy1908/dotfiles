@@ -8,7 +8,7 @@ sudo apt upgrade
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
 # Packages installation
-sudo apt install build-essential ripgrep neovim stow tmux zoxide bat lsd -y
+sudo apt install build-essential unzip ripgrep neovim stow tmux zoxide bat lsd -y
 
 # Neovim files
 git clone https://github.com/Redy1908/nvim.git ./.config/nvim
