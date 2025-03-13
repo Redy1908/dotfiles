@@ -73,7 +73,7 @@ cat <<EOF >> alacritty.toml
 
 [general]
 import = [
-  "C:\\\Users\\\\$windows_user\\\AppData\\\Roaming\\\alacritty\\\themes\\\tokyo-night.toml"
+  "C:\\\Users\\\\$windows_user\\\AppData\\\Roaming\\\alacritty\\\themes\\\gruvbox-dark.toml"
 ]
 
 working_directory = "C:\\\Users\\\\$windows_user"
