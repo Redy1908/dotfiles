@@ -11,7 +11,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt install build-essential python3.12 python3.12-venv python3-pip unzip xclip ripgrep neovim stow tmux zoxide bat lsd -y
 
 # Neovim files
-git clone https://github.com/Redy1908/nvim.git ./.config/nvim
+git clone git@github.com:Redy1908/nvim.git ./.config/nvim
 
 # Starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
